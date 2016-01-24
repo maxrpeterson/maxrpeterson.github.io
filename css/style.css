@@ -4,7 +4,7 @@ body {
 	font-family: sans-serif;
 	font-size: 14px;
 	text-align: center;
-	background: #181818;
+	background: #ddd;
 	color: #888;
 }
 
@@ -63,7 +63,6 @@ a {
 }
 
 a:hover {
-	color: #bbb;
 	text-shadow: 0 0 2em #888;
 }
 
