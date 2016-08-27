@@ -45,10 +45,19 @@ function calcChange(oldTarg, newTarg, numSteps) {
   return (newTarg - oldTarg) / numSteps;
 }
 
-
-function getNewTargetsAndRender(ctx) {
-  colorTargets = getNewColorTargets(colorTargets);
-  renderCanvasGradient(ctx, rgb(colorTargets.left), rgb(colorTargets.right));
+function getChanges(oldTarg, newTarg, numSteps) {
+  return {
+    left: {
+      r: calcChange(oldTarg.left.r, newTarg.left.r, numSteps),
+      g: calcChange(oldTarg.left.r, newTarg.left.r, numSteps),
+      b: calcChange(oldTarg.left.r, newTarg.left.r, numSteps)
+    },
+    right: {
+      r: calcChange(oldTarg.right.r, newTarg.right.r, numSteps),
+      g: calcChange(oldTarg.right.r, newTarg.right.r, numSteps),
+      b: calcChange(oldTarg.right.r, newTarg.right.r, numSteps)
+    }
+  };
 }
 
 function init() {
@@ -75,40 +84,18 @@ function init() {
     }
   };
   let i = 0;
-  let change = {
-    left: {
-      r: 0,
-      g: 0,
-      b: 0
-    },
-    right: {
-      r: 0,
-      g: 0,
-      b: 0
-    }
-  };
   renderCanvasGradient(ctx, rgb(colorValues.left), rgb(colorValues.right));
 
   colorTargets = getNewColorTargets(colorTargets);
 
-  change.left.r = calcChange(colorValues.left.r, colorTargets.left.r, steps);
-  change.left.g = calcChange(colorValues.left.g, colorTargets.left.g, steps);
-  change.left.b = calcChange(colorValues.left.b, colorTargets.left.b, steps);
-  change.right.r = calcChange(colorValues.right.r, colorTargets.right.r, steps);
-  change.right.g = calcChange(colorValues.right.g, colorTargets.right.g, steps);
-  change.right.b = calcChange(colorValues.right.b, colorTargets.right.b, steps);
+  let change = getChanges(colorValues, colorTargets, steps);
 
   function step(timestamp) {
     if (i === steps) {
       i = 0;
       let old = colorTargets;
       colorTargets = getNewColorTargets(colorTargets);
-      change.left.r = calcChange(old.left.r, colorTargets.left.r, steps);
-      change.left.g = calcChange(old.left.g, colorTargets.left.g, steps);
-      change.left.b = calcChange(old.left.b, colorTargets.left.b, steps);
-      change.right.r = calcChange(old.right.r, colorTargets.right.r, steps);
-      change.right.g = calcChange(old.right.g, colorTargets.right.g, steps);
-      change.right.b = calcChange(old.right.b, colorTargets.right.b, steps);
+      change = getChanges(old, colorTargets, steps);
     }
 
     colorValues.left.r += change.left.r;
