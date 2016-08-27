@@ -49,13 +49,13 @@ function getChanges(oldTarg, newTarg, numSteps) {
   return {
     left: {
       r: calcChange(oldTarg.left.r, newTarg.left.r, numSteps),
-      g: calcChange(oldTarg.left.r, newTarg.left.r, numSteps),
-      b: calcChange(oldTarg.left.r, newTarg.left.r, numSteps)
+      g: calcChange(oldTarg.left.g, newTarg.left.g, numSteps),
+      b: calcChange(oldTarg.left.b, newTarg.left.b, numSteps)
     },
     right: {
       r: calcChange(oldTarg.right.r, newTarg.right.r, numSteps),
-      g: calcChange(oldTarg.right.r, newTarg.right.r, numSteps),
-      b: calcChange(oldTarg.right.r, newTarg.right.r, numSteps)
+      g: calcChange(oldTarg.right.g, newTarg.right.g, numSteps),
+      b: calcChange(oldTarg.right.b, newTarg.right.b, numSteps)
     }
   };
 }
