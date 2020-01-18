@@ -1,0 +1,23 @@
+{
+  "name": "maxrpeterson.github.io",
+  "version": "0.1.0",
+  "description": "Max Peterson's website",
+  "main": "index.js",
+  "scripts": {
+    "start": "browser-sync start -sw --port 3000",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxrpeterson/maxrpeterson.github.io.git"
+  },
+  "author": "Max Peterson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maxrpeterson/maxrpeterson.github.io/issues"
+  },
+  "homepage": "https://github.com/maxrpeterson/maxrpeterson.github.io#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.7"
+  }
+}
