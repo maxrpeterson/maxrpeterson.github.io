@@ -92,7 +92,7 @@
 
     let change = getChanges(colorValues, colorTargets, steps);
 
-    function step(timestamp) {
+    function step() {
       if (i === steps) {
         i = 0;
         let old = colorTargets;
