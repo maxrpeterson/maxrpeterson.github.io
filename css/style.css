@@ -143,7 +143,7 @@ a:hover::after {
     animation-duration: 360s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
-    animation-direction: forwards;
+    animation-direction: normal;
     animation-fill-mode: both;
     animation-delay: 360s;
   }
