@@ -4,7 +4,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Nunito', sans-serif;
-  font-size: 14px;
+  font-size: 3.5vw;
   text-align: center;
   background: #ddd;
   color: #9bacb6;
@@ -33,7 +33,7 @@ main {
 
 .max-peterson {
   font-size: 4em;
-  font-weight: 400;
+  font-weight: 200;
   line-height: 1;
   margin: 0;
 }
@@ -65,19 +65,86 @@ main {
 }
 
 a {
+  position: relative;
   color: inherit;
   text-decoration: none;
   font-size: 1.3em;
   font-weight: 200;
-  transition: all 0.5s;
+  display: flex;
+  justify-content: center;
 }
 
-a:hover {
-  text-decoration: underline;
+a::after {
+  display: block;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  background-color: #9bacb6;
+  width: 0;
+  transition: all 0.2s;
 }
 
-@media (min-width: 800px) {
+a:hover::after {
+  width: 105%;
+}
+
+@media (min-width: 450px) {
   body {
     font-size: 16px;
+    text-shadow: 0 0 2em rgba(0, 0, 0, 0.5);
+  }
+}
+
+@media (min-width: 900px) {
+  .max-peterson {
+    font-size: 6em;
+  }
+}
+
+@supports (color: var(--)) {
+  @keyframes wave {
+    from {
+      transform: translateY(6%);
+    }
+
+    to {
+      transform: translateY(-6%);
+    }
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .max-peterson span {
+    display: inline-block;
+    animation-name: wave;
+    animation-duration: 0.6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+    animation-delay: calc(var(--wave-order) * 100ms + 300s);
+  }
+
+  body {
+    overflow: hidden;
+  }
+
+  main {
+    animation-name: rotate;
+    animation-duration: 360s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: forwards;
+    animation-fill-mode: both;
+    animation-delay: 360s;
   }
 }
