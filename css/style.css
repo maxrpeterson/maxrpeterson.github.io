@@ -1,15 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 14px;
   text-align: center;
   background: #ddd;
   color: #9bacb6;
+  text-shadow: 0 0 2em rgba(0, 0, 0, 0.7);
 }
 
-canvas,
-.container {
+canvas {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -17,56 +19,56 @@ canvas,
   bottom: 0;
   left: 0;
   right: 0;
-}
-
-canvas {
-  z-index: 1;
-}
-
-.container {
-  z-index: 10;
-}
-
-.vert-center {
-  display: block;
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  transform: translateY(-50%);
-  width: 100%;
+  z-index: 0;
 }
 
 main {
-  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-h1 {
-  font-size: 5em;
-  margin-bottom: 0.2em;
+.max-peterson {
+  font-size: 4em;
+  font-weight: 400;
+  line-height: 1;
+  margin: 0;
 }
 
-h2 {
-  font-size: 2em;
+.subhead {
+  font-size: 1.7em;
+  font-weight: 200;
+  line-height: 1;
+  margin-bottom: 0;
   margin-top: 0.3em;
 }
 
-ul {
+.links {
   list-style: none;
   padding: 0;
   margin-top: 4em;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: center;
 }
 
-li {
-  display: inline-block;
-  margin: 0 1em;
+.links li {
+  display: block;
+  margin: 0;
+}
+
+.links li + li {
+  margin-left: 2.5em;
 }
 
 a {
   color: inherit;
   text-decoration: none;
-  font-size: 1.5em;
-  padding: 0.5em;
+  font-size: 1.3em;
+  font-weight: 200;
   transition: all 0.5s;
 }
 
@@ -74,13 +76,8 @@ a:hover {
   text-decoration: underline;
 }
 
-@media (max-width: 800px) {
+@media (min-width: 800px) {
   body {
     font-size: 16px;
-  }
-
-  li {
-    display: block;
-    margin: 2em 1em;
   }
 }
