@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/maxrpeterson/maxrpeterson.github.io#readme",
   "devDependencies": {
-    "browser-sync": "^2.26.7"
+    "browser-sync": "^2.27.10"
   }
 }
